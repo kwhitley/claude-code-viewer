@@ -1,4 +1,4 @@
-import { readdir } from 'fs/promises'
+import { readdir, stat } from 'fs/promises'
 import { error } from 'itty-router'
 import { homedir } from 'os'
 import { basename, join } from 'path'
@@ -11,6 +11,8 @@ export const getProjects = async () => {
 
     return Promise.all(
       projectDirs.map(async (dir) => {
+        const projectPath = join(claudeDir, dir)
+        const stats = await stat(projectPath)
         const parts = dir.split('-').slice(1) // remove initial empty part
         const reconstructedPath = await reconstructPathFromParts(parts)
 
@@ -33,6 +35,7 @@ export const getProjects = async () => {
           path: displayPath,
           name,
           user,
+          modified: stats.mtime,
           sessions: `/projects/${dir}/sessions`,
         }
       }),

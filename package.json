@@ -1,29 +1,35 @@
 {
-	"name": "claude-code-viewer",
-	"private": true,
-	"version": "0.0.1",
-	"type": "module",
-	"scripts": {
-		"dev": "concurrently \"npm:dev:svelte\" \"npm:dev:api\"",
-		"dev:svelte": "vite dev",
-		"dev:api": "bun --watch server/index.ts",
-		"start": "npm run build && concurrently \"npm:start:svelte\" \"npm:start:api\"",
-		"start:svelte": "vite preview",
-		"start:api": "bun server/index.ts",
-		"build": "vite build",
-		"preview": "vite preview",
-		"prepare": "svelte-kit sync || echo ''",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
-	},
-	"devDependencies": {
-		"@sveltejs/adapter-auto": "^6.0.0",
-		"@sveltejs/kit": "^2.16.0",
-		"@sveltejs/vite-plugin-svelte": "^5.0.0",
-		"concurrently": "^9.1.2",
-		"svelte": "^5.0.0",
-		"svelte-check": "^4.0.0",
-		"typescript": "^5.0.0",
-		"vite": "^6.2.6"
-	}
+  "name": "claude-code-viewer",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "fix": "pkill -f esbuild",
+    "format": "prettier --write \"**/*.{js,ts,json,md,svelte}\"",
+    "dev": "concurrently \"npm:dev:svelte\" \"npm:dev:api\"",
+    "dev:svelte": "vite dev",
+    "dev:api": "bun --watch server/index.ts",
+    "start": "npm run build && concurrently \"npm:start:svelte\" \"npm:start:api\"",
+    "start:svelte": "vite preview",
+    "start:api": "bun server/index.ts",
+    "build": "vite build",
+    "preview": "vite preview",
+    "prepare": "svelte-kit sync || echo ''",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-auto": "^6.0.0",
+    "@sveltejs/kit": "^2.16.0",
+    "@sveltejs/vite-plugin-svelte": "^5.0.0",
+    "concurrently": "^9.1.2",
+    "itty-time": "^2.0.1",
+    "prettier": "^3.5.3",
+    "prettier-plugin-svelte": "^3.4.0",
+    "sass-embedded": "^1.89.2",
+    "svelte": "^5.0.0",
+    "svelte-check": "^4.0.0",
+    "typescript": "^5.0.0",
+    "vite": "^6.2.6"
+  }
 }

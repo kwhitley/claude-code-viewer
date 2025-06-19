@@ -1,11 +1,11 @@
-import { readFile } from 'fs/promises'
+import { readFile, stat } from 'fs/promises'
 import { error, type IRequest } from 'itty-router'
 import { homedir } from 'os'
 import { join } from 'path'
 import { sanitizeObject, whereObject } from '../lib'
 
 export const getSession = async (req: IRequest) => {
-  const { projectid, sessionid } = req
+  const { projectid, sessionid } = req.params
 
   try {
     const sessionPath = join(
@@ -15,28 +15,35 @@ export const getSession = async (req: IRequest) => {
       projectid,
       `${sessionid}.jsonl`,
     )
+    const stats = await stat(sessionPath)
     const content = await readFile(sessionPath, 'utf-8')
     const lines = content.trim().split('\n')
     const jsonObjects = lines.map((line) => JSON.parse(line))
 
-    return jsonObjects
-      .map(
-        sanitizeObject([
-          'sessionId',
-          'cwd',
-          'version',
-          'isSidechain',
-          'parentUuid',
-          'userType',
-          'type',
-        ]),
-      )
-      .filter(
-        whereObject([
-          (o: any) => !o.message?.usage,
-          (o: any) => !o.toolUseResult,
-        ]),
-      )
+    const sessionData = {
+      id: sessionid,
+      modified: stats.mtime,
+      content: jsonObjects
+        .map(
+          sanitizeObject([
+            'sessionId',
+            'cwd',
+            'version',
+            'isSidechain',
+            'parentUuid',
+            'userType',
+            'type',
+          ]),
+        )
+        .filter(
+          whereObject([
+            (o: any) => !o.message?.usage,
+            (o: any) => !o.toolUseResult,
+          ]),
+        ),
+    }
+
+    return sessionData
   } catch (err) {
     return error(404, 'Session not found')
   }

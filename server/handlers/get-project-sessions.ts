@@ -19,12 +19,12 @@ export const getProjectSessions = async (req: IRequest) => {
         return {
           id: sessionId,
           link: `/projects/${projectid}/sessions/${sessionId}`,
-          date: fileStats.birthtime,
+          modified: fileStats.mtime,
         }
       }),
     )
 
-    return sessions.sort((a, b) => b.date.getTime() - a.date.getTime())
+    return sessions.sort((a, b) => b.modified.getTime() - a.modified.getTime())
   } catch (err) {
     return error(404, 'Project not found or no sessions available')
   }
