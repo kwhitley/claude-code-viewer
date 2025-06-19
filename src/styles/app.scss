@@ -2,6 +2,37 @@ html {
   font-family: 'Inter', sans-serif;
   font-size: 0.9rem;
   line-height: 1.5;
+
+  --fg-color-rgb: 51, 51, 51;
+  --bg-color-rgb: 244, 244, 244;
+  --accent-color-rgb: 255, 0, 204;
+
+  --fg-color: rgba(var(--fg-color-rgb), 1);
+  --bg-color: rgba(var(--bg-color-rgb), 1);
+  --accent-color: rgba(var(--accent-color-rgb), 1);
+
+  --fg-90: rgba(var(--fg-color-rgb), 0.9);
+  --fg-75: rgba(var(--fg-color-rgb), 0.75);
+  --fg-50: rgba(var(--fg-color-rgb), 0.5);
+  --fg-25: rgba(var(--fg-color-rgb), 0.25);
+  --fg-10: rgba(var(--fg-color-rgb), 0.1);
+
+  --bg-90: rgba(var(--bg-color-rgb), 0.9);
+  --bg-75: rgba(var(--bg-color-rgb), 0.75);
+  --bg-50: rgba(var(--bg-color-rgb), 0.5);
+  --bg-25: rgba(var(--bg-color-rgb), 0.25);
+  --bg-10: rgba(var(--bg-color-rgb), 0.1);
+
+  --accent-90: rgba(var(--accent-color-rgb), 0.9);
+  --accent-75: rgba(var(--accent-color-rgb), 0.75);
+  --accent-50: rgba(var(--accent-color-rgb), 0.5);
+  --accent-25: rgba(var(--accent-color-rgb), 0.25);
+  --accent-10: rgba(var(--accent-color-rgb), 0.1);
+
+  @media (prefers-color-scheme: dark) {
+    --fg-color-rgb: 244, 244, 244;
+    --bg-color-rgb: 51, 51, 51;
+  }
 }
 
 html, * {
@@ -12,5 +43,20 @@ html, * {
 
 small {
   opacity: 0.7;
-  font-size: 0.5em;
+  font-size: 0.7em;
+  font-weight: normal;
+}
+
+p {
+  line-height: 1.5;
+  margin-bottom: 1.5em;
+}
+
+ul ul {
+  padding: 0.25rem 0 0 0.5rem;
+}
+
+li {
+  line-height: 1.4;
+  margin-bottom: 0.3em;
 }

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { page } from '$app/stores'
   import { browser } from '$app/environment'
-  import { formatDate } from '$lib/dates'
+  import { formatDate } from '$lib'
 
   type Project = { id: string; name: string; modified: string }
   type Session = { id: string; modified: string }
@@ -36,6 +36,10 @@
 </script>
 
 <aside>
+  <h1>
+    <small>Claude Code</small>
+    <span>Projects</span>
+  </h1>
   <nav>
     <ul>
       {#each projects as project}
@@ -54,6 +58,7 @@
                     href="/projects/{project.id}/sessions/{session.id}"
                     class:active={isSessionActive}
                   >
+                  <small class="title">Session</small>
                     {formatDate(session.modified)}
                   </a>
                 </li>
@@ -66,30 +71,69 @@
   </nav>
 </aside>
 
-<style>
+<style lang="scss">
   aside {
     background-color: #f4f4f4;
     padding: 1rem;
     height: 100%;
     overflow: auto;
   }
+
+  h1 {
+    line-height: 1;
+    margin-bottom: 1.25rem;
+    font-weight: 500;
+    font-size: 2rem;
+    font-family: 'Roboto Mono', monospace;
+    padding: 0.5rem;
+
+    display: flex;
+    flex-flow: column;
+
+    color: var(--accent-color);
+
+    small {
+      font-size: 0.5em;
+      color: var(--accent-75);
+    }
+  }
+
   ul {
     list-style: none;
-    padding: 0;
-    padding-left: 1rem;
+
+    ul {
+      padding-left: 1rem;
+      font-size: 0.8rem;
+    }
   }
+
   a {
     display: block;
-    padding: 0.25rem;
+    padding: 0.35rem 0.6rem;
+    border-radius: 0.25rem;
     text-decoration: none;
     color: #333;
+
+    &:hover {
+      background-color: #e0e0e0;
+    }
+
+    &.active {
+      // color: var(--bg-color);
+      background-color: var(--fg-10);
+      font-weight: bold;
+    }
+
+    small {
+      display: block;
+    }
   }
-  a small {
-    display: block;
-    font-size: 0.75rem;
-    color: #666;
-  }
-  a.active {
+
+  .title {
+    text-transform: uppercase;
+    font-size: 0.7em;
+    opacity: 1;
     font-weight: bold;
+    color: var(--accent-90);
   }
 </style>

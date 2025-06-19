@@ -3,7 +3,7 @@
   export let data
 </script>
 
-<Sidebar projects={data.projects} initialSessions={data.initialSessions} />
+<Sidebar {...data} />
 
 <div class="content">
   <slot />
