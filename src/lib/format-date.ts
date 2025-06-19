@@ -1,6 +1,6 @@
 import { duration } from 'itty-time'
 
-export const formatDate = (dateString: string, showDuration: boolean = false): string => {
+export const formatDate = (dateString: string | Date, showDuration: boolean = false): string => {
   const date = new Date(dateString)
   if (isNaN(date.getTime())) {
     return 'Invalid Date'

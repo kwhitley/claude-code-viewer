@@ -16,18 +16,21 @@ html {
   --fg-50: rgba(var(--fg-color-rgb), 0.5);
   --fg-25: rgba(var(--fg-color-rgb), 0.25);
   --fg-10: rgba(var(--fg-color-rgb), 0.1);
+  --fg-5: rgba(var(--fg-color-rgb), 0.05);
 
   --bg-90: rgba(var(--bg-color-rgb), 0.9);
   --bg-75: rgba(var(--bg-color-rgb), 0.75);
   --bg-50: rgba(var(--bg-color-rgb), 0.5);
   --bg-25: rgba(var(--bg-color-rgb), 0.25);
   --bg-10: rgba(var(--bg-color-rgb), 0.1);
+  --bg-5: rgba(var(--bg-color-rgb), 0.05);
 
   --accent-90: rgba(var(--accent-color-rgb), 0.9);
   --accent-75: rgba(var(--accent-color-rgb), 0.75);
   --accent-50: rgba(var(--accent-color-rgb), 0.5);
   --accent-25: rgba(var(--accent-color-rgb), 0.25);
   --accent-10: rgba(var(--accent-color-rgb), 0.1);
+  --accent-5: rgba(var(--accent-color-rgb), 0.05);
 
   @media (prefers-color-scheme: dark) {
     --fg-color-rgb: 244, 244, 244;
@@ -59,4 +62,13 @@ ul ul {
 li {
   line-height: 1.4;
   margin-bottom: 0.3em;
+}
+
+pre {
+  font-size: 0.75rem;
+  line-height: 1.3;
+  background-color: var(--fg-5);
+  padding: 1rem;
+  border-radius: 0.25rem;
+  overflow: auto;
 }

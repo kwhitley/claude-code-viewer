@@ -39,6 +39,8 @@ export const getSession = async (req: IRequest) => {
           whereObject([
             (o: any) => !o.message?.usage,
             (o: any) => !o.toolUseResult,
+            (o: any) => o.timestamp,
+            (o: any) => o.message?.content?.[0]?.text || typeof o.message?.content === 'string',
           ]),
         ),
     }
