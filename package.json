@@ -1,0 +1,23 @@
+{
+  "name": "claude-code-viewer",
+  "version": "0.0.1",
+  "type": "module",
+  "module": "index.ts",
+  "private": true,
+  "license": "SEE LICENSE IN LICENSE",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite dev",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "prettier": "^3.5.3"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "itty-router": "^5.0.18"
+  }
+}
