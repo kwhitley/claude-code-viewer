@@ -60,8 +60,20 @@
       background-color: rgba(50, 200, 50, 0.3);
       background-color: rgba(100, 150, 230, 0.3);
       background-color: var(--fg-25);
-      background-color: var(--fg-90);
+      background-color: var(--fg-100);
+      position: relative;
+      overflow: hidden;
       color: var(--bg-color);
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 5rem;
+        height: 100%;
+        background: linear-gradient(to right, rgba(var(--fg-color-rgb), 0), var(--fg-90));
+      }
     }
   }
 
