@@ -8,7 +8,8 @@
   let { data }: Props = $props()
 </script>
 
-<h1>Session Details
+<h1>
+  <span>Session Details</span>
   <small>{formatDate(data.session.modified)}</small>
 </h1>
 
@@ -26,11 +27,15 @@
   h1 {
     font-size: 2rem;
     font-weight: 500;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-flow: column;
+    gap: 0;
+    line-height: 1;
 
     small {
       display: block;
-      font-size: 1rem;
+      font-size: 0.9rem;
     }
   }
 

@@ -40,7 +40,7 @@
     margin-bottom: 2rem;
     position: relative;
 
-    --offset: 5rem;
+    --offset: 20%;
   }
 
   .timestamp {
@@ -58,6 +58,10 @@
 
     pre {
       background-color: rgba(50, 200, 50, 0.3);
+      background-color: rgba(100, 150, 230, 0.3);
+      background-color: var(--fg-25);
+      background-color: var(--fg-90);
+      color: var(--bg-color);
     }
   }
 

@@ -39,7 +39,7 @@
     top: var(--offset);
     right: var(--offset);
     z-index: 1;
-    color: var(--fg-90);
+    color: var(--bg-90);
     opacity: 1;
     transition: opacity 0.2s ease-out;
 
@@ -58,7 +58,7 @@
     }
 
     &:hover {
-      color: var(--fg-100);
+      color: var(--bg-color);
     }
   }
 </style>

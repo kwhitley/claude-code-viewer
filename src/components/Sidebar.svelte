@@ -138,6 +138,5 @@
     font-size: 0.7em;
     opacity: 1;
     font-weight: bold;
-    color: var(--accent-90);
-  }
+    color: var(--fg-50);  }
 </style>

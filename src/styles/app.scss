@@ -11,6 +11,7 @@ html {
   --bg-color: rgba(var(--bg-color-rgb), 1);
   --accent-color: rgba(var(--accent-color-rgb), 1);
 
+  --fg-100: rgba(var(--fg-color-rgb), 1);
   --fg-90: rgba(var(--fg-color-rgb), 0.9);
   --fg-75: rgba(var(--fg-color-rgb), 0.75);
   --fg-50: rgba(var(--fg-color-rgb), 0.5);
@@ -18,6 +19,7 @@ html {
   --fg-10: rgba(var(--fg-color-rgb), 0.1);
   --fg-5: rgba(var(--fg-color-rgb), 0.05);
 
+  --bg-100: rgba(var(--bg-color-rgb), 1);
   --bg-90: rgba(var(--bg-color-rgb), 0.9);
   --bg-75: rgba(var(--bg-color-rgb), 0.75);
   --bg-50: rgba(var(--bg-color-rgb), 0.5);
@@ -25,6 +27,7 @@ html {
   --bg-10: rgba(var(--bg-color-rgb), 0.1);
   --bg-5: rgba(var(--bg-color-rgb), 0.05);
 
+  --accent-100: rgba(var(--accent-color-rgb), 1);
   --accent-90: rgba(var(--accent-color-rgb), 0.9);
   --accent-75: rgba(var(--accent-color-rgb), 0.75);
   --accent-50: rgba(var(--accent-color-rgb), 0.5);
