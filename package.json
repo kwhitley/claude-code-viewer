@@ -1,5 +1,6 @@
 {
   "name": "claude-code-viewer",
+  "description": "A locally-installable API + UI for viewing previous Claude Code sessions.",
   "version": "0.0.1",
   "type": "module",
   "module": "index.ts",
