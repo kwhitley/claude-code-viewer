@@ -2,7 +2,7 @@ import { readFile } from 'fs/promises'
 import { error, type IRequest } from 'itty-router'
 import { homedir } from 'os'
 import { join } from 'path'
-import { sanitizeObject, whereObject } from '$lib'
+import { sanitizeObject, whereObject } from '../lib'
 
 export const getSession = async (req: IRequest) => {
   const { projectid, sessionid } = req

@@ -1,46 +1,38 @@
-# claude-code-viewer
+# sv
 
-This project is a web server for viewing code projects and their sessions. It is built with [Bun](https://bun.sh/), [Vite](https://vitejs.dev/), and [itty-router](https://itty.dev/).
+Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
 
-## Installation
+## Creating a project
 
-To install the dependencies, run the following command:
-
-```bash
-bun install
-```
-
-### Run the API
-
-To start the development server, run:
+If you're seeing this, you've probably already done this step. Congrats!
 
 ```bash
-bun run dev
+# create a new project in the current directory
+npx sv create
+
+# create a new project in my-app
+npx sv create my-app
 ```
 
-The server will start on `http://localhost:3001` by default.
+## Developing
 
-# API Endpoints
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
-The server exposes the following API endpoints:
+```bash
+npm run dev
 
-### `GET /projects`
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
+```
 
-Returns a list of all available code projects.
+## Building
 
-### `GET /projects/:projectid/sessions`
+To create a production version of your app:
 
-Returns a list of all sessions for a given project.
+```bash
+npm run build
+```
 
-**Parameters:**
+You can preview the production build with `npm run preview`.
 
--   `projectid` (string): The ID of the project.
-
-### `GET /projects/:projectid/sessions/:sessionid`
-
-Returns the content of a specific session for a given project.
-
-**Parameters:**
-
--   `projectid` (string): The ID of the project.
--   `sessionid` (string): The ID of the session.
+> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
