@@ -32,17 +32,31 @@ export const getSession = async (req: IRequest) => {
             'isSidechain',
             'parentUuid',
             'userType',
-            'type',
           ]),
         )
         .filter(
           whereObject([
-            (o: any) => !o.message?.usage,
-            (o: any) => !o.toolUseResult,
+            // (o: any) => !o.message?.usage,
+            // (o: any) => !o.toolUseResult,
             (o: any) => o.timestamp,
             (o: any) => o.message?.content?.[0]?.text || typeof o.message?.content === 'string',
           ]),
-        ),
+        )
+        .map(({
+          message,
+          requestId,
+          isMeta,
+          ...rest
+        }: any) => {
+          let content = message?.content?.[0]?.text || message?.content
+          return {
+            content,
+            // message,
+            role: message?.role,
+            model: message?.model,
+            ...rest,
+          }
+        }),
     }
 
     return sessionData

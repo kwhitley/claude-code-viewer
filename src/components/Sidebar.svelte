@@ -45,7 +45,7 @@
       {#each projects as project}
         {@const isExpanded = $page.params.projectid === project.id}
         <li>
-          <a href="/projects/{project.id}/sessions" class:active={isExpanded}>
+          <a href="/projects/{project.id}/sessions" class:active={isExpanded} class="project">
             {project.name}
             <small>{formatDate(project.modified)}</small>
           </a>
@@ -98,6 +98,10 @@
     }
   }
 
+  .project {
+    font-weight: bold;
+  }
+
   ul {
     list-style: none;
 
@@ -115,7 +119,7 @@
     color: #333;
 
     &:hover {
-      background-color: #e0e0e0;
+      background-color: var(--accent-10);
     }
 
     &.active {

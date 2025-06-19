@@ -1,21 +1,36 @@
 <script lang="ts">
   import { formatDate } from '$lib'
+  import CopyAction from './CopyAction.svelte'
 
   type Props = {
     content: string
     timestamp: Date
+    role: string
+    model?: string
   }
 
-  let { content, timestamp }: Props = $props()
+  let { content, timestamp, role, model }: Props = $props()
 </script>
 
-<div class="chat-entry">
+<div
+  class="chat-entry"
+  class:assistant={role === 'assistant'}
+  class:user={role === 'user'}
+  >
   <div class="content">
+    {#if role ==='user'}
+      <CopyAction content={content} />
+    {/if}
     <pre>{content}</pre>
   </div>
-  <small class="timestamp">
-    {formatDate(timestamp)}
-  </small>
+  <footer>
+    {#if model}
+      <small class="model">{model}</small>
+    {/if}
+    <small class="timestamp">
+      {formatDate(timestamp)}
+    </small>
+  </footer>
 </div>
 
 <style lang="scss">
@@ -23,6 +38,9 @@
     display: flex;
     flex-flow: column;
     margin-bottom: 2rem;
+    position: relative;
+
+    --offset: 5rem;
   }
 
   .timestamp {
@@ -32,5 +50,40 @@
 
   pre {
     padding: 1.5rem;
+    border-radius: 0.6rem;
+  }
+
+  .user {
+    margin-left: var(--offset);
+
+    pre {
+      background-color: rgba(50, 200, 50, 0.3);
+    }
+  }
+
+  footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    padding: 0.1rem 0.3rem 0;
+
+    &:has(.model) {
+      flex-flow: row-reverse;
+    }
+  }
+
+  .model {
+    color: var(--fg-50);
+  }
+
+  .assistant {
+    margin-right: var(--offset);
+
+    pre {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      color: var(--fg-50);
+    }
   }
 </style>

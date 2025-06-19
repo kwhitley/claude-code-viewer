@@ -6,20 +6,16 @@
     data: any
   }
   let { data }: Props = $props()
-  let { session } = data
 </script>
 
 <h1>Session Details
-  <small>{formatDate(session.modified)}</small>
+  <small>{formatDate(data.session.modified)}</small>
 </h1>
 
 <main>
-  {#each session.content as item}
+  {#each data.session.content as item}
     <div class="item">
-      <ChatEntry
-        content={item.message?.content?.[0]?.text ?? item.message?.content}
-        timestamp={item.timestamp}
-        />
+      <ChatEntry {...item} />
 
       <!-- <pre>{JSON.stringify(item, null, 2)}</pre> -->
     </div>
