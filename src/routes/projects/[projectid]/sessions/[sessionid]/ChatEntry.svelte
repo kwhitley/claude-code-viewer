@@ -19,7 +19,7 @@
   >
   <div class="content">
     {#if role ==='user' || true}
-      <CopyAction content={content} --color="red;" />
+      <CopyAction content={content} --color={role === 'user' ? 'var(--bg-100)' : 'var(--fg-10)'} />
     {/if}
     <pre>{content}</pre>
   </div>
@@ -44,7 +44,7 @@
 
   .timestamp {
     align-self: flex-end;
-    font-size: 0.7rem;
+    font-size: 0.7em;
   }
 
   pre {
@@ -55,11 +55,7 @@
 
   .user {
     margin-left: var(--offset);
-
-    .content {
-      --color: var(--bg-100);
-      color: red;
-    }
+    --color: var(--bg-100);
 
     pre {
       background-color: rgba(50, 200, 50, 0.3);
@@ -98,15 +94,11 @@
 
   .assistant {
     margin-right: var(--offset);
-
-    .content {
-      --color: var(--fg-50);
-    }
+    --color: var(--fg-50);
 
     pre {
       text-overflow: ellipsis;
       overflow: hidden;
-      white-space: nowrap;
     }
   }
 </style>
