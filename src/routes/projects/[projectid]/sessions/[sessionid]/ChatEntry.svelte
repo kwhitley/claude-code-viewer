@@ -18,8 +18,8 @@
   class:user={role === 'user'}
   >
   <div class="content">
-    {#if role ==='user'}
-      <CopyAction content={content} />
+    {#if role ==='user' || true}
+      <CopyAction content={content} --color="red;" />
     {/if}
     <pre>{content}</pre>
   </div>
@@ -39,7 +39,6 @@
     flex-flow: column;
     margin-bottom: 2rem;
     position: relative;
-
     --offset: 20%;
   }
 
@@ -51,10 +50,16 @@
   pre {
     padding: 1.5rem;
     border-radius: 0.6rem;
+    color: var(--color);
   }
 
   .user {
     margin-left: var(--offset);
+
+    .content {
+      --color: var(--bg-100);
+      color: red;
+    }
 
     pre {
       background-color: rgba(50, 200, 50, 0.3);
@@ -63,7 +68,6 @@
       background-color: var(--fg-100);
       position: relative;
       overflow: hidden;
-      color: var(--bg-color);
 
       &::after {
         content: '';
@@ -95,11 +99,14 @@
   .assistant {
     margin-right: var(--offset);
 
+    .content {
+      --color: var(--fg-50);
+    }
+
     pre {
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap;
-      color: var(--fg-50);
     }
   }
 </style>

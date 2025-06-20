@@ -39,9 +39,9 @@
     top: var(--offset);
     right: var(--offset);
     z-index: 1;
-    color: var(--bg-90);
-    opacity: 1;
-    transition: opacity 0.2s ease-out;
+    opacity: 0.9;
+    transition: opacity 0.1s ease-out;
+    color: var(--color);
 
     &:hover svg {
       transform: translateY(-1px);
@@ -58,7 +58,7 @@
     }
 
     &:hover {
-      color: var(--bg-color);
+      opacity: 1;
     }
   }
 </style>
