@@ -11,7 +11,7 @@
 
 <style>
   .content {
-    padding: 1rem 3rem 1rem 2rem;
+    padding: 1.5rem 3rem 1rem 2rem;
     overflow: auto;
   }
 </style>
