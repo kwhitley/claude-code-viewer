@@ -1,7 +1,8 @@
 <script lang="ts">
-  import { page } from '$app/stores'
   import { browser } from '$app/environment'
+  import { page } from '$app/stores'
   import { formatDate } from '$lib'
+  import { slide } from 'svelte/transition'
 
   type Project = { id: string; name: string; modified: string }
   type Session = { id: string; modified: string }
@@ -50,7 +51,7 @@
             <small>{formatDate(project.modified)}</small>
           </a>
           {#if isExpanded}
-            <ul>
+            <ul transition:slide={{ duration: 200 }}>
               {#each sessionsByProject[project.id] ?? [] as session}
                 {@const isSessionActive = $page.params.sessionid === session.id}
                 <li>
