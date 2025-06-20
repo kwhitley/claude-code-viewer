@@ -84,8 +84,8 @@
     line-height: 1;
     margin-bottom: 1.25rem;
     font-weight: 500;
-    font-size: 2rem;
-    font-family: 'Roboto Mono', monospace;
+    font-size: 2.5rem;
+    // font-family: 'Roboto Mono', monospace;
     padding: 0.5rem;
 
     display: flex;
