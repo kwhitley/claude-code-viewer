@@ -1,7 +1,7 @@
 ### Claude Code Viewer
 Adds a simple API + UI for getting back to your Claude Code sessions (namely the prompts).
 
-https://github.com/user-attachments/assets/23880517-c3eb-40c3-b626-a195da5e37cf
+https://github.com/user-attachments/assets/5c460829-9727-4c9a-a1a2-5a0028870236
 
 # Getting Started
 1. ### Clone this repo.
